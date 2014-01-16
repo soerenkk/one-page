@@ -3,12 +3,20 @@
 // Version
 define('VERSION', '1.0.0');
 
+// Start sessionen \\
+session_start();
+
 /* Testing non-beta */
 
 // Configuration
 if (file_exists('config.php')) {
 	require_once('config.php');
 }  
+
+require_once(DIR_ROOT . '/system/Autoloader.php');
+System\Autoloader::register();
+
+$test = new System\test();
 
 // Install 
 // 
