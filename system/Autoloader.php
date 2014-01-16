@@ -11,6 +11,9 @@ namespace System;
 class Autoloader
 {
     private $dir;
+    
+    // $system must be the same as the namespace \\
+    private $system = "System";
 
     public function __construct($dir = null)
     {
@@ -40,7 +43,7 @@ class Autoloader
     public function autoload($class)
     {
         
-        if (0 !== strpos($class, 'System')) {
+        if (0 !== strpos($class, $this->system)) {
             return;
         }
 
